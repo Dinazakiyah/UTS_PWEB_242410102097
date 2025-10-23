@@ -582,7 +582,7 @@
         gap: 0.35rem;
     }
 
-    /* Responsive */
+
     @media (max-width: 991px) {
         .info-grid {
             grid-template-columns: 1fr;

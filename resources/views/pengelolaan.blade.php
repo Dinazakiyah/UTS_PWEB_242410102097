@@ -494,7 +494,7 @@
         box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
     }
 
-    /* Card View Section */
+
     .card-view-section {
         margin-top: 3rem;
     }
