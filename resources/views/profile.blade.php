@@ -17,7 +17,7 @@
                                 <i class="bi bi-check-circle-fill"></i>
                             </div>
                         </div>
-                        <h4 class="profile-name">{{ $username }}</h4>
+                        <h4 class="profile-name">{{ Auth::user()->name }}</h4>
                         <p class="profile-role">
                             <i class="bi bi-shield-check"></i> Administrator
                         </p>
@@ -80,7 +80,7 @@
                         <i class="bi bi-person-badge-fill"></i>
                     </div>
                     <div class="card-content">
-                        <h5 class="card-title">Selamat datang, {{ $username }}!</h5>
+                        <h5 class="card-title">Selamat datang, {{ Auth::user()->name }}!</h5>
                         <p class="card-text">
                             Anda telah login sebagai administrator Portal Berita Indonesia.
                             Kelola berita, pantau statistik, dan berikan informasi terbaik untuk pembaca.
@@ -98,11 +98,11 @@
                     <div class="info-grid">
                         <div class="info-item">
                             <div class="info-label">Username</div>
-                            <div class="info-value">{{ $username }}</div>
+                            <div class="info-value">{{ Auth::user()->name }}</div>
                         </div>
                         <div class="info-item">
                             <div class="info-label">Email</div>
-                            <div class="info-value">{{ strtolower($username) }}@portalberita.id</div>
+                            <div class="info-value">{{ Auth::user()->email }}</div>
                         </div>
                         <div class="info-item">
                             <div class="info-label">Role</div>

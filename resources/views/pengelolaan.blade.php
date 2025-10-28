@@ -12,7 +12,7 @@
                     <h2 class="header-title">
                         <i class="bi bi-card-list"></i> Kelola Berita
                     </h2>
-                    <p class="header-subtitle">Daftar semua berita yang tersedia di portal</p>
+                    <p class="header-subtitle">Selamat datang, {{ Auth::user()->name }}! Daftar semua berita yang tersedia di portal</p>
                 </div>
                 <div class="header-badge">
                     <span class="badge-count">{{ count($beritaList) }}</span>

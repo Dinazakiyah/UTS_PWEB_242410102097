@@ -39,14 +39,14 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="username" class="form-label">
-                                <i class="bi bi-person-fill"></i> Username
+                            <label for="email" class="form-label">
+                                <i class="bi bi-envelope-fill"></i> Email
                             </label>
-                            <input type="text"
+                            <input type="email"
                                    class="form-control form-control-custom"
-                                   id="username"
-                                   name="username"
-                                   placeholder="Masukkan username Anda"
+                                   id="email"
+                                   name="email"
+                                   placeholder="Masukkan email Anda"
                                    required
                                    autocomplete="off">
                         </div>
@@ -79,7 +79,7 @@
                 </div>
 
                 <div class="login-footer">
-                    <p>&copy; 2025 Portal Berita Indonesia - UTS Pemrograman Web</p>
+                    <p>&copy; 2025 Portal Berita Indonesia - kelompok 6</p>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
     <div class="container">
-        <a class="navbar-brand" href="{{ route('dashboard', ['username' => request()->query('username')]) }}">
+        <a class="navbar-brand" href="{{ route('dashboard') }}">
             <i class="bi bi-newspaper"></i>
             <span class="brand-text">Portal Berita</span>
         </a>
@@ -11,17 +11,32 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto ms-lg-4">
-                @if(request()->query('username'))
+                @if(Auth::check())
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}"
-                           href="{{ route('dashboard', ['username' => request()->query('username')]) }}">
+                           href="{{ route('dashboard') }}">
                             <i class="bi bi-house-door-fill"></i> Dashboard
                         </a>
                     </li>
+                    @if(Auth::user()->role === 'admin')
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('admin') ? 'active' : '' }}"
+                           href="{{ route('admin') }}">
+                            <i class="bi bi-card-list"></i> Admin Panel
+                        </a>
+                    </li>
+                    @elseif(Auth::user()->role === 'journalist')
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('pengelolaan') ? 'active' : '' }}"
-                           href="{{ route('pengelolaan', ['username' => request()->query('username')]) }}">
+                           href="{{ route('pengelolaan') }}">
                             <i class="bi bi-card-list"></i> Kelola Berita
+                        </a>
+                    </li>
+                    @endif
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('berita') ? 'active' : '' }}"
+                           href="{{ route('berita') }}">
+                            <i class="bi bi-newspaper"></i> Berita
                         </a>
                     </li>
                     <li class="nav-item dropdown">
@@ -41,12 +56,12 @@
             </ul>
 
             <ul class="navbar-nav">
-                @if(request()->query('username'))
+                @if(Auth::check())
                     <li class="nav-item">
                         <a class="nav-link nav-profile {{ request()->routeIs('profile') ? 'active' : '' }}"
-                           href="{{ route('profile', ['username' => request()->query('username')]) }}">
+                           href="{{ route('profile') }}">
                             <i class="bi bi-person-circle"></i>
-                            <span class="username-text">{{ request()->query('username') }}</span>
+                            <span class="username-text">{{ Auth::user()->name }}</span>
                         </a>
                     </li>
                     <li class="nav-item">

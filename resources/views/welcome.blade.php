@@ -130,6 +130,57 @@
             flex-wrap: wrap;
         }
 
+        .settings-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .settings-title {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .setting-item {
+            text-align: center;
+        }
+
+        .setting-label {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .setting-select {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            color: #1f2937;
+            width: 100%;
+        }
+
+        .setting-select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+
         .btn {
             padding: 1rem 2rem;
             border-radius: 12px;
@@ -373,13 +424,103 @@
                     <i class="bi bi-box-arrow-in-right"></i>
                     Mulai Sekarang
                 </a>
-                <a href="#features" class="btn btn-secondary">
-                    <i class="bi bi-info-circle"></i>
-                    Pelajari Lebih Lanjut
+                <a href="{{ route('berita') }}" class="btn btn-secondary">
+                    <i class="bi bi-newspaper"></i>
+                    Lihat Berita
                 </a>
+            </div>
+
+            <!-- Theme and Language Settings -->
+            <div class="settings-section">
+                <h5 class="settings-title">Pengaturan Preferensi</h5>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label for="theme-select" class="setting-label">
+                            <i class="bi bi-palette"></i> Tema
+                        </label>
+                        <select id="theme-select" class="form-select setting-select">
+                            <option value="light">Terang</option>
+                            <option value="dark">Gelap</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="language-select" class="setting-label">
+                            <i class="bi bi-translate"></i> Bahasa
+                        </label>
+                        <select id="language-select" class="form-select setting-select">
+                            <option value="id">Indonesia</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="save-settings" class="btn btn-secondary">
+                    <i class="bi bi-check-circle me-1"></i>Simpan Pengaturan
+                </button>
             </div>
         </section>
 
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeSelect = document.getElementById('theme-select');
+            const languageSelect = document.getElementById('language-select');
+            const saveButton = document.getElementById('save-settings');
+
+            // Load saved preferences from cookies
+            const savedTheme = getCookie('theme') || 'light';
+            const savedLanguage = getCookie('language') || 'id';
+
+            themeSelect.value = savedTheme;
+            languageSelect.value = savedLanguage;
+
+            // Apply theme
+            applyTheme(savedTheme);
+
+            // Save settings
+            saveButton.addEventListener('click', function() {
+                const theme = themeSelect.value;
+                const language = languageSelect.value;
+
+                // Set cookies (expires in 30 days)
+                setCookie('theme', theme, 30);
+                setCookie('language', language, 30);
+
+                // Apply theme immediately
+                applyTheme(theme);
+
+                // Show success message
+                saveButton.innerHTML = '<i class="bi bi-check-circle-fill me-1"></i>Tersimpan!';
+                saveButton.classList.remove('btn-secondary');
+                saveButton.classList.add('btn-success');
+
+                setTimeout(() => {
+                    saveButton.innerHTML = '<i class="bi bi-check-circle me-1"></i>Simpan Pengaturan';
+                    saveButton.classList.remove('btn-success');
+                    saveButton.classList.add('btn-secondary');
+                }, 2000);
+            });
+
+            function applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+
+            function setCookie(name, value, days) {
+                const expires = new Date();
+                expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+                document.cookie = name + '=' + value + ';expires=' + expires.toUTCString() + ';path=/';
+            }
+
+            function getCookie(name) {
+                const nameEQ = name + '=';
+                const ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+        });
+        </script>
 
         <section class="stats">
             <div class="stats-grid">

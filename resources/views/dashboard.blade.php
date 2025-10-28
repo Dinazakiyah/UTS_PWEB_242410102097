@@ -11,7 +11,7 @@
                     <div class="d-flex align-items-center justify-content-between">
                         <div>
                             <h2 class="text-white mb-2">
-                                Selamat datang, {{ $username }}!
+                                Selamat datang, {{ Auth::user()->name }}!
                             </h2>
                             <p class="text-white-50 mb-0">
                                 Temukan berita terkini dan terpercaya di Portal Berita Indonesia
@@ -85,7 +85,7 @@
                     </h4>
                     <p class="section-subtitle">Berita yang paling banyak dibaca hari ini</p>
                 </div>
-                <a href="{{ route('pengelolaan', ['username' => $username]) }}" class="btn btn-outline-primary btn-sm">
+                <a href="{{ route('pengelolaan') }}" class="btn btn-outline-primary btn-sm">
                     Lihat Semua <i class="bi bi-arrow-right"></i>
                 </a>
             </div>
@@ -132,7 +132,7 @@
 
         <div class="row g-4">
             <div class="col-lg-6">
-                <a href="{{ route('pengelolaan', ['username' => $username]) }}" class="quick-action-card">
+                <a href="{{ route('pengelolaan') }}" class="quick-action-card">
                     <div class="quick-action-icon bg-primary">
                         <i class="bi bi-card-list"></i>
                     </div>
@@ -145,7 +145,7 @@
             </div>
 
             <div class="col-lg-6">
-                <a href="{{ route('profile', ['username' => $username]) }}" class="quick-action-card">
+                <a href="{{ route('profile') }}" class="quick-action-card">
                     <div class="quick-action-icon bg-success">
                         <i class="bi bi-person-circle"></i>
                     </div>

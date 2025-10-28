@@ -71,10 +71,10 @@
 
         <div class="text-center">
             <p class="mb-0 small text-light">
-                &copy; 2025 Portal Berita Indonesia. Dibuat untuk UTS Pemrograman Web.
+                &copy; 2025 Portal Berita Indonesia. Dibuat untuk Tugas Pemroggraman Berbasis Web.
             </p>
             <p class="mb-0 small text-light">
-                Dibuat oleh Dina Zakiyah Wiliansyah.
+                Dibuat oleh Kelompok 6.
             </p>
         </div>
     </div>
