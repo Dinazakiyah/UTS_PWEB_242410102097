@@ -79,7 +79,7 @@
                 </div>
 
                 <div class="login-footer">
-                    <p>&copy; 2025 Portal Berita Indonesia - kelompok 6</p>
+                    <p>&copy; 2025 Portal Berita Indonesia - Dina Zakiyah W</p>
                 </div>
             </div>
         </div>

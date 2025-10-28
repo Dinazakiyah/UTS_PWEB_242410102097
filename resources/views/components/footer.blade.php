@@ -74,7 +74,7 @@
                 &copy; 2025 Portal Berita Indonesia. Dibuat untuk Tugas Pemroggraman Berbasis Web.
             </p>
             <p class="mb-0 small text-light">
-                Dibuat oleh Kelompok 6.
+                Dibuat oleh Dina Zakiyah Wiliansyah.
             </p>
         </div>
     </div>
