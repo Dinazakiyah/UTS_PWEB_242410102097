@@ -64,7 +64,7 @@
             @endforeach
         </div>
 
-        <!-- Reading History Section -->
+
         @if(session('read_articles') && count(session('read_articles')) > 0)
         <div class="row mt-5">
             <div class="col-12">

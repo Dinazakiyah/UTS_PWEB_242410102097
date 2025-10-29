@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <article class="artikel-content">
-                    <!-- Article Header -->
+
                     <header class="artikel-header">
                         <div class="artikel-category">
                             <span class="badge bg-{{ $artikel['kategori'] == 'Teknologi' ? 'primary' : ($artikel['kategori'] == 'Olahraga' ? 'success' : ($artikel['kategori'] == 'Ekonomi' ? 'warning' : ($artikel['kategori'] == 'Politik' ? 'danger' : ($artikel['kategori'] == 'Hiburan' ? 'info' : 'secondary')))) }}">
@@ -28,12 +28,12 @@
                         </div>
                     </header>
 
-                    <!-- Article Image -->
+
                     <div class="artikel-image">
                         <img src="{{ $artikel['gambar'] }}" alt="{{ $artikel['judul'] }}" class="img-fluid rounded">
                     </div>
 
-                    <!-- Article Body -->
+
                     <div class="artikel-body">
                         @php
                             $paragraphs = explode("\n\n", trim($artikel['isi']));
@@ -46,7 +46,7 @@
                         @endforeach
                     </div>
 
-                    <!-- Article Footer -->
+
                     <footer class="artikel-footer">
                         <div class="artikel-actions">
                             <a href="{{ route('berita') }}" class="btn btn-outline-primary">
@@ -60,7 +60,7 @@
                             </div>
                         </div>
 
-                        <!-- Reading Progress -->
+
                         <div class="reading-progress">
                             <div class="progress-bar">
                                 <div class="progress-fill" id="progressFill"></div>
@@ -70,7 +70,7 @@
                     </footer>
                 </article>
 
-                <!-- Related Articles -->
+
                 <div class="related-articles">
                     <h3 class="related-title">
                         <i class="bi bi-lightbulb me-2"></i>Artikel Terkait
@@ -108,7 +108,7 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Reading progress tracking
+
     const artikelContent = document.querySelector('.artikel-body');
     const progressFill = document.getElementById('progressFill');
     const progressText = document.getElementById('progressText');
@@ -127,9 +127,8 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', updateReadingProgress);
     updateReadingProgress();
 
-    // Mark as read when user spends time on page
+
     let readTimer = setTimeout(function() {
-        // Article is considered read after 30 seconds
         console.log('Article marked as read');
     }, 30000);
 });
@@ -142,7 +141,7 @@ function shareArticle() {
             url: window.location.href
         });
     } else {
-        // Fallback: copy to clipboard
+
         navigator.clipboard.writeText(window.location.href).then(function() {
             alert('Link artikel berhasil disalin!');
         });

@@ -430,7 +430,6 @@
                 </a>
             </div>
 
-            <!-- Theme and Language Settings -->
             <div class="settings-section">
                 <h5 class="settings-title">Pengaturan Preferensi</h5>
                 <div class="settings-grid">
@@ -465,29 +464,27 @@
             const languageSelect = document.getElementById('language-select');
             const saveButton = document.getElementById('save-settings');
 
-            // Load saved preferences from cookies
+
             const savedTheme = getCookie('theme') || 'light';
             const savedLanguage = getCookie('language') || 'id';
 
             themeSelect.value = savedTheme;
             languageSelect.value = savedLanguage;
 
-            // Apply theme
+
             applyTheme(savedTheme);
 
-            // Save settings
             saveButton.addEventListener('click', function() {
                 const theme = themeSelect.value;
                 const language = languageSelect.value;
 
-                // Set cookies (expires in 30 days)
+
                 setCookie('theme', theme, 30);
                 setCookie('language', language, 30);
 
-                // Apply theme immediately
                 applyTheme(theme);
 
-                // Show success message
+
                 saveButton.innerHTML = '<i class="bi bi-check-circle-fill me-1"></i>Tersimpan!';
                 saveButton.classList.remove('btn-secondary');
                 saveButton.classList.add('btn-success');

@@ -28,7 +28,7 @@ class PageController
 
     public function showDashboard(Request $request)
     {
-        // Set theme and language preferences from cookies
+
         $theme = $request->cookie('theme', 'light');
         $language = $request->cookie('language', 'id');
 
@@ -40,7 +40,7 @@ class PageController
 
     public function showPengelolaan(Request $request)
     {
-        // Store last read article in session if provided
+
         if ($request->has('article_id')) {
             $request->session()->put('last_read_article', $request->article_id);
         }
@@ -108,11 +108,11 @@ class PageController
 
     public function showBerita(Request $request)
     {
-        // Get theme and language from cookies
+
         $theme = $request->cookie('theme', 'light');
         $language = $request->cookie('language', 'id');
 
-        // Get read articles history from session
+
         $readArticles = $request->session()->get('read_articles', []);
 
         $beritaList = [
@@ -187,11 +187,11 @@ class PageController
 
     public function showArtikel(Request $request, $id)
     {
-        // Get theme and language from cookies
+
         $theme = $request->cookie('theme', 'light');
         $language = $request->cookie('language', 'id');
 
-        // Mark article as read in session
+
         $readArticles = $request->session()->get('read_articles', []);
         if (!in_array($id, $readArticles)) {
             $readArticles[] = $id;

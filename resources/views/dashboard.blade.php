@@ -168,7 +168,7 @@
         min-height: calc(100vh - 56px);
     }
 
-    /* Welcome Banner */
+
     .welcome-banner {
         background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
         padding: 2.5rem;
@@ -245,7 +245,7 @@
         font-weight: 500;
     }
 
-    /* Section Header */
+
     .section-header {
         margin-top: 1rem;
     }
